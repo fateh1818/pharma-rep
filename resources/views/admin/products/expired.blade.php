@@ -24,7 +24,7 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="table-responsive">
-					<table id="expired-product" class="datatable table table-striped table-bordered table-hover table-center mb-0">
+					<table id="expired-product" class="datatable table table-danger table-bordered table-hover table-center mb-0">
 						<thead>
 							<tr>
 								<th>Brand Name</th>

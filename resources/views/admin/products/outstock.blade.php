@@ -24,7 +24,7 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="table-responsive">
-					<table id="outstock-product" class=" table table-hover table-center mb-0">
+					<table id="outstock-product" class=" table table-warning table-hover table-center mb-0">
 						<thead>
 							<tr>
 								<th>Brand Name</th>

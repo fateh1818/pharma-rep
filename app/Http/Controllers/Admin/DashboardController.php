@@ -36,9 +36,25 @@ class DashboardController extends Controller
         $total_expired_products = Purchase::whereDate('expiry_date', '=', Carbon::now())->count();
         $latest_sales = Sale::whereDate('created_at','=',Carbon::now())->get();
         $today_sales = Sale::whereDate('created_at','=',Carbon::now())->sum('total_price');
+
+        // Calculate Today's Profit
+        $today_profit = Sale::whereDate('created_at', '=', Carbon::now())
+            ->with(['product.purchase'])
+            ->get()
+            ->sum(function($sale) {
+                $cost_price = $sale->product->purchase->cost_price ?? 0;
+                $revenue = $sale->total_price;
+                // Assuming total_price is for the whole quantity. Cost price is usually per unit.
+                // We need to double check if total_price is unit * qty or just total. 
+                // Sale migration says: quantity, total_price. Standard logic: total_price = unit_price * quantity.
+                // So Total Cost = cost_price * quantity.
+                $total_cost = $cost_price * $sale->quantity;
+                return $revenue - $total_cost;
+            });
+
         return view('admin.dashboard',compact(
             'title','pieChart','total_expired_products',
-            'latest_sales','today_sales','total_categories'
+            'latest_sales','today_sales','total_categories', 'today_profit'
         ));
     }
 }

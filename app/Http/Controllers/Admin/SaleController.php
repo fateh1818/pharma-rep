@@ -47,13 +47,14 @@ class SaleController extends Controller
                     ->addColumn('action', function ($row) {
                         $editbtn = '<a href="'.route("sales.edit", $row->id).'" class="editbtn"><button class="btn btn-primary"><i class="fas fa-edit"></i></button></a>';
                         $deletebtn = '<a data-id="'.$row->id.'" data-route="'.route('sales.destroy', $row->id).'" href="javascript:void(0)" id="deletebtn"><button class="btn btn-danger"><i class="fas fa-trash"></i></button></a>';
+                        $printbtn = '<a href="'.route("sales.invoice", $row->id).'" target="_blank" class="btn btn-warning"><i class="fas fa-print"></i></a>';
                         if (!auth()->user()->hasPermissionTo('edit-sale')) {
                             $editbtn = '';
                         }
                         if (!auth()->user()->hasPermissionTo('destroy-sale')) {
                             $deletebtn = '';
                         }
-                        $btn = $editbtn.' '.$deletebtn;
+                        $btn = $editbtn.' '.$deletebtn.' '.$printbtn;
                         return $btn;
                     })
                     ->rawColumns(['product','action'])
@@ -242,5 +243,11 @@ class SaleController extends Controller
     public function destroy(Request $request)
     {
         return Sale::findOrFail($request->id)->delete();
+    }
+
+    public function invoice($id){
+        $title = 'invoice';
+        $sale = Sale::with('product.purchase')->findOrFail($id);
+        return view('admin.sales.invoice',compact('title','sale'));
     }
 }

@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('sales',SaleController::class)->except('show');
     Route::get('sales/reports',[SaleController::class,'reports'])->name('sales.report');
     Route::post('sales/reports',[SaleController::class,'generateReport']);
+    Route::get('sales/invoice/{id}', [SaleController::class, 'invoice'])->name('sales.invoice');
 
     Route::get('backup', [BackupController::class,'index'])->name('backup.index');
     Route::put('backup/create', [BackupController::class,'create'])->name('backup.store');

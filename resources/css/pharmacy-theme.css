@@ -1,0 +1,88 @@
+/* Pharmacy Theme - Modern Medical Aesthetic */
+:root {
+    --primary-color: #009688; /* Medical Teal */
+    --primary-dark: #00796b;
+    --primary-light: #e0f2f1;
+    --secondary-color: #4caf50; /* Success/Safe Green */
+    --accent-color: #ff5722; /* Alert/Action Orange */
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --text-muted: #798e98;
+    --sidebar-width: 250px;
+    --border-radius: 12px;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+}
+
+/* Glassmorphism Cards */
+.card {
+    background: var(--card-bg);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background: var(--card-bg);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+}
+
+.sidebar-menu li.active a {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    border-radius: 0 25px 25px 0;
+    font-weight: 600;
+}
+
+.sidebar-menu li a:hover {
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+/* Badge/Labels */
+.badge-success {
+    background-color: var(--secondary-color);
+}
+
+/* Dashboard Widgets */
+.dash-widget-header {
+    margin-bottom: 15px;
+}
+
+.dash-widget-icon {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}

@@ -19,10 +19,10 @@
 				
 				@can('view-products')
 				<li class="submenu">
-					<a href="#"><i class="fe fe-document"></i> <span> Products</span> <span class="menu-arrow"></span></a>
+					<a href="#"><i class="fe fe-document"></i> <span> Medicines</span> <span class="menu-arrow"></span></a>
 					<ul style="display: none;">
-						<li><a class="{{ route_is(('products.*')) ? 'active' : '' }}" href="{{route('products.index')}}">Products</a></li>
-						@can('create-product')<li><a class="{{ route_is('products.create') ? 'active' : '' }}" href="{{route('products.create')}}">Add Product</a></li>@endcan
+						<li><a class="{{ route_is(('products.*')) ? 'active' : '' }}" href="{{route('products.index')}}">Medicines List</a></li>
+						@can('create-product')<li><a class="{{ route_is('products.create') ? 'active' : '' }}" href="{{route('products.create')}}">Add Medicine</a></li>@endcan
 						@can('view-outstock-products')<li><a class="{{ route_is('outstock') ? 'active' : '' }}" href="{{route('outstock')}}">Out-Stock</a></li>@endcan
 						@can('view-expired-products')<li><a class="{{ route_is('expired') ? 'active' : '' }}" href="{{route('expired')}}">Expired</a></li>@endcan
 					</ul>
@@ -31,11 +31,11 @@
 				
 				@can('view-purchase')
 				<li class="submenu">
-					<a href="#"><i class="fe fe-star-o"></i> <span> Purchase</span> <span class="menu-arrow"></span></a>
+					<a href="#"><i class="fe fe-star-o"></i> <span> Stock/Inventory</span> <span class="menu-arrow"></span></a>
 					<ul style="display: none;">
-						<li><a class="{{ route_is('purchases.*') ? 'active' : '' }}" href="{{route('purchases.index')}}">Purchase</a></li>
+						<li><a class="{{ route_is('purchases.*') ? 'active' : '' }}" href="{{route('purchases.index')}}">Inventory List</a></li>
 						@can('create-purchase')
-						<li><a class="{{ route_is('purchases.create') ? 'active' : '' }}" href="{{route('purchases.create')}}">Add Purchase</a></li>
+						<li><a class="{{ route_is('purchases.create') ? 'active' : '' }}" href="{{route('purchases.create')}}">Add Stock</a></li>
 						@endcan
 					</ul>
 				</li>

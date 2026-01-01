@@ -15,6 +15,8 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <!-- Pharmacy Theme -->
+    <link rel="stylesheet" href="{{asset('assets/css/pharmacy-theme.css')}}">
     <!-- Page CSS -->
     @stack('page-css')
     <!--[if lt IE 9]>
